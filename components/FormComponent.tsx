@@ -1,69 +1,25 @@
 "use client";
-import {useCallback, useEffect, useRef, useState} from "react";
-import { ApiResponseType } from "@/lib/ApiResponseType";
-import Editor, {useMonaco} from '@monaco-editor/react';
+import {useState} from "react";
+import {ApiResponseType} from "@/lib/ApiResponseType";
 import defaultJsonValue from "@/lib/demo.json";
-
-import {googleQuizJsonSchema} from "@/lib/QuizSchemas";
-
+import JsonEditor from "@/components/form/JsonEditor";
+import FormCreationLogs from "@/components/form/FormCreationLogs";
 
 export default function FormComponent() {
-  const [jsonContent, setJsonContent] = useState(JSON.stringify(defaultJsonValue, null, 4));
+  const [jsonContent, setJsonContent] = useState(
+      JSON.stringify(defaultJsonValue, null, 4)
+  );
   const [loading, setLoading] = useState(false);
-  const monaco = useMonaco();
-
-  useEffect(() => {
-
-
-    if (monaco) {
-      monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-        validate: true,
-        schemas: [
-          {
-            uri: "https://json.schemastore.org/github-workflow",
-            fileMatch: ["*"],
-            schema: googleQuizJsonSchema
-          }
-        ],
-      })
-    }
-  }, [monaco]);
 
   const [events, setEvents] = useState<
-    { type: ApiResponseType; text: string }[]
+      { type: ApiResponseType; text: string }[]
   >([]);
-
-  const typeToPrefix = useCallback((type: ApiResponseType) => {
-    switch (type) {
-      case ApiResponseType.SELF:
-        return ">";
-      case ApiResponseType.SUCCESS:
-        return "✓";
-      case ApiResponseType.ERROR:
-        return "✗";
-        default:
-        return "$";
-    }
-  }, []);
-
-  const typeToColor = useCallback((type: ApiResponseType) => {
-    switch (type) {
-      case ApiResponseType.SELF:
-        return "text-warning";
-      case ApiResponseType.SUCCESS:
-        return "text-success";
-      case ApiResponseType.ERROR:
-        return "text-error";
-        default:
-        return "text-white";
-    }
-  } , []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
     setEvents([
-        ...events,
+      ...events,
       {
         type: ApiResponseType.SELF,
         text: `Creating a new form...`,
@@ -114,21 +70,17 @@ export default function FormComponent() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 h-full">
+      <form onSubmit={handleSubmit} className="space-y-4 h-full">
+        <JsonEditor
+            jsonContent={jsonContent}
+            onChange={(value) => setJsonContent(value)}
+        ></JsonEditor>
 
-      <Editor theme="vs-dark" value={jsonContent} onChange={value => setJsonContent(value ?? '')} className="h-[500px] rounded-xl overflow-hidden" defaultLanguage="json" />
+        <button disabled={loading} className={`btn ${loading ? "loading" : ""}`}>
+          Create Form
+        </button>
 
-      <button disabled={loading} className={`btn ${loading ? "loading" : ""}`}>
-        Create Form
-      </button>
-
-      <div className="mockup-code">
-        {events.map((event, index) => (
-          <pre key={index} data-prefix={typeToPrefix(event.type)}>
-            <code className={`${typeToColor(event.type)}`}>{event.text}</code>
-          </pre>
-        ))}
-      </div>
-    </form>
+        <FormCreationLogs events={events}/>
+      </form>
   );
 }
