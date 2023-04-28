@@ -21,14 +21,25 @@ locally by following the instructions below.
    git clone
     ```
 2. Install NPM packages
-3. ```sh
+
+ ```sh
    npm install
    ```
-4. Run the app
+
+3. Set the environment variables
+
+```dotenv
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=
+```
+
+3. Run the app
    ```sh
     npm run dev
     ```
-5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Screenshots
 
