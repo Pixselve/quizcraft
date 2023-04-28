@@ -19,18 +19,6 @@ export default async function Home() {
     );
   }
   return (
-    // <div className="h-full my-auto w-full flex items-center justify-center">
-    //   <p>
-    //     Effortlessly transform your JSON data into interactive Google Forms
-    //     quizzes! With our user-friendly platform, generate customized quizzes in
-    //     no time by simply uploading your JSON file. Perfect for educators,
-    //     trainers, and event organizers, QuizCraft streamlines quiz creation and
-    //     management, saving you time and effort. Get started now and unlock the
-    //     full potential of your data!
-    //   </p>
-    //   <LoginButton></LoginButton>
-    // </div>
-
     <div className="hero bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <Image

@@ -1,20 +1,7 @@
-import { forms_v1, google } from "googleapis";
-import { z } from "zod";
+import {forms_v1, google} from "googleapis";
 import {ApiResponseType} from "@/lib/ApiResponseType";
+import {GoogleQuiz, GoogleQuizQuestion} from "@/lib/QuizSchemas";
 
-export const GoogleQuizQuestionSchema = z.object({
-  question: z.string(),
-  answers: z.array(z.string()),
-  correctAnswers: z.array(z.string()),
-});
-export const GoogleQuizSchema = z.object({
-  title: z.string(),
-  questions: z.array(GoogleQuizQuestionSchema),
-});
-
-export type GoogleQuiz = z.infer<typeof GoogleQuizSchema>;
-
-export type GoogleQuizQuestion = z.infer<typeof GoogleQuizQuestionSchema>;
 
 /**
  * Creates a Google Form quiz using the provided GoogleQuiz object and access token.

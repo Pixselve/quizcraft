@@ -1,16 +1,33 @@
 "use client";
-import { useCallback, useState } from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import { ApiResponseType } from "@/lib/ApiResponseType";
-import Editor from '@monaco-editor/react';
-
+import Editor, {useMonaco} from '@monaco-editor/react';
 import defaultJsonValue from "@/lib/demo.json";
+
+import {googleQuizJsonSchema} from "@/lib/QuizSchemas";
 
 
 export default function FormComponent() {
   const [jsonContent, setJsonContent] = useState(JSON.stringify(defaultJsonValue, null, 4));
   const [loading, setLoading] = useState(false);
+  const monaco = useMonaco();
+
+  useEffect(() => {
 
 
+    if (monaco) {
+      monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+        validate: true,
+        schemas: [
+          {
+            uri: "https://json.schemastore.org/github-workflow",
+            fileMatch: ["*"],
+            schema: googleQuizJsonSchema
+          }
+        ],
+      })
+    }
+  }, [monaco]);
 
   const [events, setEvents] = useState<
     { type: ApiResponseType; text: string }[]

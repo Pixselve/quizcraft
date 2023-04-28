@@ -1,8 +1,9 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import createGoogleQuiz, { GoogleQuizSchema } from "@/lib/createGoogleQuiz";
+import createGoogleQuiz from "@/lib/createGoogleQuiz";
 import { z } from "zod";
 import { ApiResponseType } from "@/lib/ApiResponseType";
+import {GoogleQuizSchema} from "@/lib/QuizSchemas";
 
 export async function POST(request: Request) {
   const session = await getServerSession(authOptions);
