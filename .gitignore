@@ -33,3 +33,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.idea/.gitignore
+/.idea/google-forms-gpt.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.vscode/settings.json
+/.idea/vcs.xml
