@@ -55,7 +55,7 @@ export default function FormComponent() {
       case ApiResponseType.ERROR:
         return "text-error";
         default:
-        return "text-base-100";
+        return "text-white";
     }
   } , []);
 
