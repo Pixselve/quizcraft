@@ -1,10 +1,11 @@
-import {z} from "zod";
-import {zodToJsonSchema} from "zod-to-json-schema";
+import { z } from "zod";
+import { zodToJsonSchema } from "zod-to-json-schema";
 
 export const GoogleQuizQuestionSchema = z.object({
-    question: z.string(),
-    answers: z.array(z.string()),
-    correctAnswers: z.array(z.string()),
+  question: z.string(),
+  answers: z.array(z.string()),
+  correctAnswers: z.array(z.string()),
+  type: z.enum(["RADIO", "CHECKBOX"]).default("CHECKBOX"),
 });
 export const GoogleQuizSchema = z.object({
     title: z.string(),

@@ -3,8 +3,41 @@
   "questions": [
     {
       "question": "Question 1",
-      "answers": ["A", "B", "C"],
-      "correctAnswers": ["A", "C"]
+      "answers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "question": "Question 1",
+      "answers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "type": "RADIO"
+    },
+    {
+      "question": "Question 1",
+      "answers": [
+        "A",
+        "B",
+        "C"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "type": "CHECKBOX"
     }
   ]
 }

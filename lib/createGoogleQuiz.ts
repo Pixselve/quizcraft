@@ -120,7 +120,7 @@ function questionToGoogleApiFormat(
             },
           },
           choiceQuestion: {
-            type: "RADIO",
+            type: question.type,
             options: question.answers.map((answer) => {
               return {
                 value: answer,
