@@ -8,8 +8,9 @@ export const GoogleQuizQuestionSchema = z.object({
   type: z.enum(["RADIO", "CHECKBOX"]).default("CHECKBOX"),
 });
 export const GoogleQuizSchema = z.object({
-    title: z.string(),
-    questions: z.array(GoogleQuizQuestionSchema),
+  title: z.string(),
+  questions: z.array(GoogleQuizQuestionSchema),
+  description: z.string().optional(),
 });
 export type GoogleQuiz = z.infer<typeof GoogleQuizSchema>;
 export type GoogleQuizQuestion = z.infer<typeof GoogleQuizQuestionSchema>;

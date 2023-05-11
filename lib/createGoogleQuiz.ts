@@ -39,6 +39,7 @@ export default async function createGoogleQuiz(
     requestBody: {
       info: {
         title: quiz.title,
+        documentTitle: quiz.title,
       },
     },
   });
@@ -74,6 +75,14 @@ export default async function createGoogleQuiz(
               },
             },
             updateMask: "quizSettings.isQuiz",
+          },
+        },
+        {
+          updateFormInfo: {
+            info: {
+              description: quiz.description,
+            },
+            updateMask: "description",
           },
         },
         ...questions,

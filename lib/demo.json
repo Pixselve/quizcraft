@@ -1,5 +1,6 @@
 {
   "title": "Demo title",
+  "description": "Enjoy the quiz!",
   "questions": [
     {
       "question": "Question 1",
