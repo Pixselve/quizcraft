@@ -2,7 +2,6 @@ import NextAuth, { AuthOptions, TokenSet } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 const scopes = [
-  "https://www.googleapis.com/auth/userinfo.profile",
   "https://www.googleapis.com/auth/userinfo.email",
   "https://www.googleapis.com/auth/drive.file",
 ];
@@ -25,12 +24,13 @@ export const authOptions: AuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    async jwt({ account, token, user }) {
+    async jwt({ account, token, user, profile }) {
       if (account) {
         return {
           access_token: account.access_token as string,
           expires_at: account.expires_at as number,
           refresh_token: account.refresh_token as string,
+          email: user?.email as string,
         };
       } else if (Date.now() / 1000 < token.expires_at) {
         // If the access token has not expired yet, return it
@@ -71,8 +71,9 @@ export const authOptions: AuthOptions = {
         }
       }
     },
-    async session({ session, token }) {
+    async session({ session, token, user }) {
       session.accessToken = token.access_token;
+      session.email = token.email;
       return session;
     },
   },

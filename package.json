@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "@monaco-editor/react": "4.x",
+    "@nextui-org/react": "^2.1.13",
     "@types/node": "20.x",
     "@types/react": "18.x",
     "@types/react-dom": "18.x",
     "autoprefixer": "10.x",
-    "daisyui": "3.x",
+    "framer-motion": "^10.16.4",
     "googleapis": "126.x",
     "next": "13.x",
     "next-auth": "4.x",
