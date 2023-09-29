@@ -9,24 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@monaco-editor/react": "^4.5.1",
-    "@types/node": "18.16.3",
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.4",
-    "autoprefixer": "10.4.14",
-    "daisyui": "^2.51.6",
-    "googleapis": "^118.0.0",
-    "next": "13.4.4",
-    "next-auth": "^4.22.1",
-    "postcss": "8.4.23",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.0.4",
-    "zod": "^3.21.4",
-    "zod-to-json-schema": "^3.21.0"
+    "@monaco-editor/react": "4.x",
+    "@types/node": "20.x",
+    "@types/react": "18.x",
+    "@types/react-dom": "18.x",
+    "autoprefixer": "10.x",
+    "daisyui": "3.x",
+    "googleapis": "126.x",
+    "next": "13.x",
+    "next-auth": "4.x",
+    "postcss": "8.x",
+    "react": "18.x",
+    "react-dom": "18.x",
+    "tailwindcss": "3.x",
+    "typescript": "5.x",
+    "zod": "3.x",
+    "zod-to-json-schema": "3.x"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "prettier": "3.x"
   }
 }
