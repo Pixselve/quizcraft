@@ -1,6 +1,5 @@
 import "./globals.css";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import LogoutButton from "@/components/LogoutButton";
 import { Providers } from "@/app/providers";
 import {
@@ -9,6 +8,7 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/navbar";
+import { authOptions } from "@/lib/authOptions";
 
 export const metadata = {
   title: "QuizCraft",

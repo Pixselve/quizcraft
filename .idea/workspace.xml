@@ -4,14 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="181a0747-161c-40e6-94e9-fc181990ab01" name="Changes" comment="chore: update packages">
+    <list default="true" id="181a0747-161c-40e6-94e9-fc181990ab01" name="Changes" comment="feat: adds form preview">
+      <change afterPath="$PROJECT_DIR$/lib/authOptions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/FormComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/FormComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/auth/[...nextauth]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/auth/[...nextauth]/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/forms/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/forms/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -42,12 +53,24 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
     "npm.dev.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/Users/maelkerichard/WebstormProjects/quizcraft/node_modules/prettier",
     "ts.external.directory.path": "/Users/maelkerichard/WebstormProjects/quizcraft/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -60,6 +83,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -73,7 +97,9 @@
       <option name="presentableId" value="Default" />
       <updated>1707232046878</updated>
       <workItem from="1707232049640" duration="42000" />
-      <workItem from="1707232093901" duration="2589000" />
+      <workItem from="1707232093901" duration="2636000" />
+      <workItem from="1707234738875" duration="16000" />
+      <workItem from="1707234785634" duration="235000" />
     </task>
     <task id="LOCAL-00001" summary="chore: update packages">
       <option name="closed" value="true" />
@@ -107,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707232730002</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: adds form preview">
+      <option name="closed" value="true" />
+      <created>1707234716219</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707234716219</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +174,7 @@
     <MESSAGE value="chore: ignore env" />
     <MESSAGE value="chore: webstorm config" />
     <MESSAGE value="chore: update packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: update packages" />
+    <MESSAGE value="feat: adds form preview" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: adds form preview" />
   </component>
 </project>
