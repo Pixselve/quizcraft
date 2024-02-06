@@ -13,21 +13,23 @@
     "@nextui-org/react": "^2.1.13",
     "framer-motion": "^10.16.4",
     "googleapis": "126.x",
+    "lucia": "^3.0.1",
     "next": "^14.1.0",
     "next-auth": "^4.24.5",
+    "oslo": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zod": "^3.22.4",
     "zod-to-json-schema": "^3.22.4"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.34",
-    "typescript": "^5.3.3",
-    "tailwindcss": "^3.4.1"
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
   }
 }
