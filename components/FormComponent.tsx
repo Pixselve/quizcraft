@@ -1,11 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { ApiResponseType } from "@/lib/ApiResponseType";
 import defaultJsonValue from "@/lib/demo.json";
 import JsonEditor from "@/components/form/JsonEditor";
 import FormCreationLogs from "@/components/form/FormCreationLogs";
 import { Button } from "@nextui-org/button";
 import FilePlus from "@/components/FilePlus";
+import { Checkbox, Radio, RadioGroup } from "@nextui-org/react";
 
 export default function FormComponent() {
   const [jsonContent, setJsonContent] = useState(
@@ -84,12 +85,25 @@ export default function FormComponent() {
     setEvents((events) => [...events, { ...event, id: randomId }]);
   }
 
+  const preview = useMemo(() => {
+    try {
+      const json = JSON.parse(jsonContent);
+      const questions = json.questions;
+      return questions ?? [];
+    } catch (e) {
+      return [];
+    }
+  }, [jsonContent]);
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4 h-full">
-      <JsonEditor
-        jsonContent={jsonContent}
-        onChange={(value) => setJsonContent(value)}
-      ></JsonEditor>
+      <div className="grid grid-cols-2 gap-2">
+        <JsonEditor
+          jsonContent={jsonContent}
+          onChange={(value) => setJsonContent(value)}
+        ></JsonEditor>
+        <FormPreview preview={preview} />
+      </div>
 
       <Button
         type="submit"
@@ -101,5 +115,42 @@ export default function FormComponent() {
       </Button>
       <FormCreationLogs events={events} />
     </form>
+  );
+}
+
+function FormPreview({ preview }: { preview: any }) {
+  return (
+    <div className="grid grid-cols-1 gap-4">
+      <div className="border-1 border-black/50 rounded-lg p-4 space-y-2 border-t-4 border-t-blue-500">
+        <h2 className="text-xl font-bold">Form Preview</h2>
+      </div>
+      {preview.map((question: any, index: number) => (
+        <div
+          className="border-1 border-black/50 rounded-lg p-4 space-y-2"
+          key={index + question}
+        >
+          <div className="text-md">
+            {question.question} <span className="text-red-500">*</span>
+          </div>
+          <div className="flex flex-col gap-2">
+            {question.type === "RADIO" ? (
+              <RadioGroup>
+                {question.answers?.map((answer: string) => (
+                  <Radio key={answer} value={answer}>
+                    {answer}
+                  </Radio>
+                ))}
+              </RadioGroup>
+            ) : (
+              <>
+                {question.answers?.map((answer: string) => (
+                  <Checkbox key={answer}>{answer}</Checkbox>
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

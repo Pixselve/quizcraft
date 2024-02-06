@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import createGoogleQuiz from "@/lib/createGoogleQuiz";
 import { z } from "zod";
 import { ApiResponseType } from "@/lib/ApiResponseType";
-import {GoogleQuizSchema} from "@/lib/QuizSchemas";
+import { GoogleQuizSchema } from "@/lib/QuizSchemas";
+import { authOptions } from "@/lib/authOptions";
 
 export async function POST(request: Request) {
   const session = await getServerSession(authOptions);
@@ -24,8 +24,8 @@ export async function POST(request: Request) {
             JSON.stringify({
               type: ApiResponseType.INFO,
               text: "Start parsing JSON...",
-            }) + "\n"
-          )
+            }) + "\n",
+          ),
         );
 
         googleQuizData = GoogleQuizSchema.parse(await request.json());
@@ -36,8 +36,8 @@ export async function POST(request: Request) {
             JSON.stringify({
               type: ApiResponseType.ERROR,
               text: "Invalid JSON",
-            }) + "\n"
-          )
+            }) + "\n",
+          ),
         );
         controller.close();
         return;
@@ -47,8 +47,8 @@ export async function POST(request: Request) {
           JSON.stringify({
             type: ApiResponseType.SUCCESS,
             text: "Parsing JSON successful...",
-          }) + "\n"
-        )
+          }) + "\n",
+        ),
       );
       let quiz;
       try {
@@ -60,8 +60,8 @@ export async function POST(request: Request) {
             JSON.stringify({
               type: ApiResponseType.ERROR,
               text: "Error creating quiz",
-            }) + "\n"
-          )
+            }) + "\n",
+          ),
         );
         controller.close();
 
@@ -73,16 +73,16 @@ export async function POST(request: Request) {
           JSON.stringify({
             type: ApiResponseType.SUCCESS,
             text: "Quiz created!",
-          }) + "\n"
-        )
+          }) + "\n",
+        ),
       );
       controller.enqueue(
         encoder.encode(
           JSON.stringify({
             type: ApiResponseType.INFO,
             text: "Available at: " + quiz.responderUri,
-          }) + "\n"
-        )
+          }) + "\n",
+        ),
       );
       controller.close();
     },
