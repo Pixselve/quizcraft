@@ -3,31 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@monaco-editor/react": "4.x",
+    "@monaco-editor/react": "^4.6.0",
     "@nextui-org/react": "^2.1.13",
-    "@types/node": "20.x",
-    "@types/react": "18.x",
-    "@types/react-dom": "18.x",
-    "autoprefixer": "10.x",
     "framer-motion": "^10.16.4",
     "googleapis": "126.x",
-    "next": "13.x",
-    "next-auth": "4.x",
-    "postcss": "8.x",
-    "react": "18.x",
-    "react-dom": "18.x",
-    "tailwindcss": "3.x",
-    "typescript": "5.x",
-    "zod": "3.x",
-    "zod-to-json-schema": "3.x"
+    "next": "^14.1.0",
+    "next-auth": "^4.24.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zod": "^3.22.4",
+    "zod-to-json-schema": "^3.22.4"
   },
   "devDependencies": {
-    "prettier": "3.x"
+    "prettier": "^3.2.5",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.34",
+    "typescript": "^5.3.3",
+    "tailwindcss": "^3.4.1"
   }
 }
